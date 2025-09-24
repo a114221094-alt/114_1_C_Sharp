@@ -1,0 +1,33 @@
+﻿namespace todoril_2_5
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cardbackpictureBox.Visible = false;
+            cardfacepictureBox.Visible = false;
+        }
+
+        private void showbackbutton_Click(object sender, EventArgs e)
+        {
+            cardbackpictureBox.Visible = true;
+            cardfacepictureBox.Visible = false;
+        }
+
+        private void showfacebutton_Click(object sender, EventArgs e)
+        {
+            cardbackpictureBox.Visible = false;
+            cardfacepictureBox.Visible = true;  
+        }
+    }
+}
