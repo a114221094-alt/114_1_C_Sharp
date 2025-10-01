@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("todoril_2_5")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8cbed339936e797376ae61388116630f214f4354")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+740c788fa9b5591a11afc9426aca527712ca4ab3")]
 [assembly: System.Reflection.AssemblyProductAttribute("todoril_2_5")]
 [assembly: System.Reflection.AssemblyTitleAttribute("todoril_2_5")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
