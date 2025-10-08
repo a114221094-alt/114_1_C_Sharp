@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Sale_Price_Calculator
+{
+    public partial class Form1 : Form
+    {
+        // 建構子：初始化表單及其所包含的元件
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        // "計算特價" 按鈕的事件處理程序
+        // 在此方法中通常會：
+        // 1. 從 originalPriceTextBox 讀取原價（字串 -> 轉成數值）
+        // 2. 從 discountPercentageTextBox 讀取折扣百分比（字串 -> 轉成數值）
+        // 3. 驗證輸入是否為有效數字且落在合理範圍（例如：原價 >= 0，折扣 0~100）
+        // 4. 計算特價：salePrice = originalPrice * (1 - discountPercent / 100)
+        // 5. 可選擇將計算結果格式化後顯示在 salePriceLabel 上
+        // 目前此範例僅保留註解，實際計算可依需求補上。
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            // TODO: 實作計算特價的邏輯（有需要時才加入程式碼）
+            // 範例程式碼（留作參考）：
+            // decimal originalPrice;
+            // decimal discountPercent;
+            // if (decimal.TryParse(originalPriceTextBox.Text, out originalPrice) &&
+            //     decimal.TryParse(discountPercentageTextBox.Text, out discountPercent))
+            // {
+            //     // 驗證範圍
+            //     if (originalPrice >= 0 && discountPercent >= 0 && discountPercent <= 100)
+            //     {
+            //         decimal salePrice = originalPrice * (1 - discountPercent / 100);
+            //         salePriceLabel.Text = salePrice.ToString("C"); // 以貨幣格式顯示
+            //     }
+            // }
+        }
+
+        // "離開" 按鈕的事件處理程序：關閉表單
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // 關閉視窗
+            this.Close();
+        }
+    }
+}

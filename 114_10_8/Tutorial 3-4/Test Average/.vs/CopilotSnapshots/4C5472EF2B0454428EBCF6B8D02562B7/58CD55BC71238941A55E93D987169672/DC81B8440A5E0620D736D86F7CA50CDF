@@ -1,0 +1,185 @@
+﻿namespace Test_Average
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// 必需的設計器變數。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// 清理所有使用的資源。
+        /// </summary>
+        /// <param name="disposing">若為 true，表示要釋放管理資源；否則僅保留非管理資源。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// 此方法為設計器支援所需的方法，請勿使用程式碼編輯器直接修改
+        /// 本方法的內容。方法會建立與配置所有控制項（TextBox、Label、Button 等）。
+        /// 以下包含詳細的繁體中文註解以利理解每一段配置。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            // 建立控制項實例
+            this.test1TextBox = new System.Windows.Forms.TextBox();
+            this.test2TextBox = new System.Windows.Forms.TextBox();
+            this.test3TextBox = new System.Windows.Forms.TextBox();
+            this.test1PromptLabel = new System.Windows.Forms.Label();
+            this.test2PromptLabel = new System.Windows.Forms.Label();
+            this.test3PromptLabel = new System.Windows.Forms.Label();
+            this.averageLabel = new System.Windows.Forms.Label();
+            this.outputDescriptionLabel = new System.Windows.Forms.Label();
+            this.calculateButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+
+            // 設定共用字型：為所有控制項指定較大的字型，字型大小為 22
+            // 使用繁體中文常見字型 "Microsoft JhengHei"，若目標電腦沒有此字型，系統會選擇替代字型。
+            System.Drawing.Font defaultFont = new System.Drawing.Font("Microsoft JhengHei", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Font = defaultFont;
+
+            // ------------------- test1TextBox（測驗一輸入欄位） -------------------
+            // 位置與大小根據 22pt 字型調整，以避免文字被裁切
+            this.test1TextBox.Location = new System.Drawing.Point(200, 20);
+            this.test1TextBox.Name = "test1TextBox";
+            this.test1TextBox.Size = new System.Drawing.Size(250, 45);
+            this.test1TextBox.TabIndex = 0;
+            this.test1TextBox.Font = defaultFont; // 個別設定字型以保證生效
+
+            // ------------------- test2TextBox（測驗二輸入欄位） -------------------
+            this.test2TextBox.Location = new System.Drawing.Point(200, 80);
+            this.test2TextBox.Name = "test2TextBox";
+            this.test2TextBox.Size = new System.Drawing.Size(250, 45);
+            this.test2TextBox.TabIndex = 1;
+            this.test2TextBox.Font = defaultFont;
+
+            // ------------------- test3TextBox（測驗三輸入欄位） -------------------
+            this.test3TextBox.Location = new System.Drawing.Point(200, 140);
+            this.test3TextBox.Name = "test3TextBox";
+            this.test3TextBox.Size = new System.Drawing.Size(250, 45);
+            this.test3TextBox.TabIndex = 2;
+            this.test3TextBox.Font = defaultFont;
+
+            // ------------------- test1PromptLabel（測驗一標籤） -------------------
+            // AutoSize = true 會讓標籤依內容與字型自動調整大小
+            this.test1PromptLabel.AutoSize = true;
+            this.test1PromptLabel.Location = new System.Drawing.Point(20, 20);
+            this.test1PromptLabel.Name = "test1PromptLabel";
+            this.test1PromptLabel.TabIndex = 3;
+            this.test1PromptLabel.Font = defaultFont;
+            this.test1PromptLabel.Text = "測驗一："; // 繁體中文文字
+
+            // ------------------- test2PromptLabel（測驗二標籤） -------------------
+            this.test2PromptLabel.AutoSize = true;
+            this.test2PromptLabel.Location = new System.Drawing.Point(20, 80);
+            this.test2PromptLabel.Name = "test2PromptLabel";
+            this.test2PromptLabel.TabIndex = 4;
+            this.test2PromptLabel.Font = defaultFont;
+            this.test2PromptLabel.Text = "測驗二：";
+
+            // ------------------- test3PromptLabel（測驗三標籤） -------------------
+            this.test3PromptLabel.AutoSize = true;
+            this.test3PromptLabel.Location = new System.Drawing.Point(20, 140);
+            this.test3PromptLabel.Name = "test3PromptLabel";
+            this.test3PromptLabel.TabIndex = 5;
+            this.test3PromptLabel.Font = defaultFont;
+            this.test3PromptLabel.Text = "測驗三：";
+
+            // ------------------- averageLabel（顯示平均分數） -------------------
+            // 設為有邊框的標籤以呈現輸出欄位外觀
+            this.averageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.averageLabel.Location = new System.Drawing.Point(200, 200);
+            this.averageLabel.Name = "averageLabel";
+            this.averageLabel.Size = new System.Drawing.Size(200, 50);
+            this.averageLabel.TabIndex = 6;
+            this.averageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.averageLabel.Font = defaultFont;
+
+            // ------------------- outputDescriptionLabel（平均描述文字） -------------------
+            this.outputDescriptionLabel.AutoSize = true;
+            this.outputDescriptionLabel.Location = new System.Drawing.Point(20, 210);
+            this.outputDescriptionLabel.Name = "outputDescriptionLabel";
+            this.outputDescriptionLabel.TabIndex = 7;
+            this.outputDescriptionLabel.Font = defaultFont;
+            this.outputDescriptionLabel.Text = "平均測驗分數：";
+
+            // ------------------- calculateButton（計算按鈕） -------------------
+            this.calculateButton.Location = new System.Drawing.Point(20, 260);
+            this.calculateButton.Name = "calculateButton";
+            this.calculateButton.Size = new System.Drawing.Size(220, 50);
+            this.calculateButton.TabIndex = 8;
+            this.calculateButton.Font = defaultFont;
+            this.calculateButton.Text = "計算平均"; // 繁體中文文字
+            this.calculateButton.UseVisualStyleBackColor = true;
+            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
+
+            // ------------------- clearButton（清除按鈕） -------------------
+            this.clearButton.Location = new System.Drawing.Point(260, 260);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(120, 50);
+            this.clearButton.TabIndex = 9;
+            this.clearButton.Font = defaultFont;
+            this.clearButton.Text = "清除";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+
+            // ------------------- exitButton（離開按鈕） -------------------
+            this.exitButton.Location = new System.Drawing.Point(400, 260);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(100, 50);
+            this.exitButton.TabIndex = 10;
+            this.exitButton.Font = defaultFont;
+            this.exitButton.Text = "離開";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+
+            // ------------------- Form1（表單本身） -------------------
+            // 設定表單的字型、大小與標題（繁體中文）
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(520, 330);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.clearButton);
+            this.Controls.Add(this.calculateButton);
+            this.Controls.Add(this.outputDescriptionLabel);
+            this.Controls.Add(this.averageLabel);
+            this.Controls.Add(this.test3PromptLabel);
+            this.Controls.Add(this.test2PromptLabel);
+            this.Controls.Add(this.test1PromptLabel);
+            this.Controls.Add(this.test3TextBox);
+            this.Controls.Add(this.test2TextBox);
+            this.Controls.Add(this.test1TextBox);
+            this.Name = "Form1";
+            this.Text = "測驗平均"; // 表單標題
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        // 下列為設計器產生的控制項欄位宣告
+        private System.Windows.Forms.TextBox test1TextBox;
+        private System.Windows.Forms.TextBox test2TextBox;
+        private System.Windows.Forms.TextBox test3TextBox;
+        private System.Windows.Forms.Label test1PromptLabel;
+        private System.Windows.Forms.Label test2PromptLabel;
+        private System.Windows.Forms.Label test3PromptLabel;
+        private System.Windows.Forms.Label averageLabel;
+        private System.Windows.Forms.Label outputDescriptionLabel;
+        private System.Windows.Forms.Button calculateButton;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button exitButton;
+    }
+}
+

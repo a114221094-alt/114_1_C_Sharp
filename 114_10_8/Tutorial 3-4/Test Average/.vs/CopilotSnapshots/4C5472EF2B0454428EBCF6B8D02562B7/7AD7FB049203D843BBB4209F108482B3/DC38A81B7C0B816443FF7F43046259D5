@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Test_Average
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        // Calculate the average of the three test scores and show it in averageLabel
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            // Try parse each textbox; show error if any invalid
+            if (!double.TryParse(test1TextBox.Text, out double t1))
+            {
+                MessageBox.Show("Please enter a valid numeric value for Test 1.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                test1TextBox.Focus();
+                return;
+            }
+
+            if (!double.TryParse(test2TextBox.Text, out double t2))
+            {
+                MessageBox.Show("Please enter a valid numeric value for Test 2.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                test2TextBox.Focus();
+                return;
+            }
+
+            if (!double.TryParse(test3TextBox.Text, out double t3))
+            {
+                MessageBox.Show("Please enter a valid numeric value for Test 3.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                test3TextBox.Focus();
+                return;
+            }
+
+            double average = (t1 + t2 + t3) / 3.0;
+            averageLabel.Text = average.ToString("F1");
+        }
+
+        // Clear inputs and output
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            test1TextBox.Text = string.Empty;
+            test2TextBox.Text = string.Empty;
+            test3TextBox.Text = string.Empty;
+            averageLabel.Text = string.Empty;
+            test1TextBox.Focus();
+        }
+
+        // Close the form
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

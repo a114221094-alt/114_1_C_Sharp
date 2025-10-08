@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Test_Average
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        // 在表單載入時執行：設定 UI 為繁體中文並調整字型大小
+        // 為避免在設計檢視造成例外或需系統特定字型，僅在執行時設定較大的字型與文字
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // 嘗試使用微軟正黑體，若目標系統沒有則由系統自動替代
+            Font uiFont = new Font("Microsoft JhengHei", 22F, FontStyle.Regular, GraphicsUnit.Point);
+
+            // 將表單與所有子控制項字型設定為較大的字型
+            this.Font = uiFont;
+            foreach (Control c in this.Controls)
+            {
+                c.Font = uiFont;
+            }
+
+            // 將所有顯示文字改為繁體中文（Runtime 變更，避免設計時錯誤）
+            test1PromptLabel.Text = "測驗一：";
+            test2PromptLabel.Text = "測驗二：";
+            test3PromptLabel.Text = "測驗三：";
+            outputDescriptionLabel.Text = "平均測驗分數：";
+            calculateButton.Text = "計算平均";
+            clearButton.Text = "清除";
+            exitButton.Text = "離開";
+            this.Text = "測驗平均";
+
+            // 根據字型量測合適高度，並調整 TextBox 與 Button 的高度，避免文字被裁切
+            int contentHeight = TextRenderer.MeasureText("測", uiFont).Height + 12; // 加上內邊距
+
+            test1TextBox.Height = contentHeight;
+            test2TextBox.Height = contentHeight;
+            test3TextBox.Height = contentHeight;
+
+            calculateButton.Height = contentHeight + 8;
+            clearButton.Height = contentHeight + 8;
+            exitButton.Height = contentHeight + 8;
+        }
+
+        // Helper to parse and validate a test score (0-100)
+        private bool ParseScore(TextBox box, out double value)
+        {
+            string text = box.Text.Trim();
+            if (!double.TryParse(text, out value))
+            {
+                MessageBox.Show($"Please enter a valid numeric value for {box.Name.Replace("TextBox", "").Replace("test", "Test ") }.",
+                    "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                box.Focus();
+                return false;
+            }
+
+            if (value < 0.0 || value > 100.0)
+            {
+                MessageBox.Show($"Please enter a value between 0 and 100 for {box.Name.Replace("TextBox", "").Replace("test", "Test ") }.",
+                    "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                box.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        // Calculate the average of the three test scores and show it in averageLabel
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            if (!ParseScore(test1TextBox, out double t1))
+                return;
+
+            if (!ParseScore(test2TextBox, out double t2))
+                return;
+
+            if (!ParseScore(test3TextBox, out double t3))
+                return;
+
+            double average = (t1 + t2 + t3) / 3.0;
+            averageLabel.Text = average.ToString("F1");
+        }
+
+        // Clear inputs and output
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            test1TextBox.Text = string.Empty;
+            test2TextBox.Text = string.Empty;
+            test3TextBox.Text = string.Empty;
+            averageLabel.Text = string.Empty;
+            test1TextBox.Focus();
+        }
+
+        // Close the form
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

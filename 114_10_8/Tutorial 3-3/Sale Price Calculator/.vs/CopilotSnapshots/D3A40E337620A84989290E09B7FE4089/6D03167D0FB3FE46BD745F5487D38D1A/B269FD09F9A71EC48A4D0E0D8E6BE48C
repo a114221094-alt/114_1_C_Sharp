@@ -1,0 +1,148 @@
+﻿namespace Sale_Price_Calculator
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// 設計工具所需的變數。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// 清除任何正在使用的資源。
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// 此方法由設計工具產生，請勿手動修改方法內容，
+        /// 若要變更 UI 元件請使用設計工具。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            // 建立並設定表單上的控制項（TextBox、Label、Button 等）
+            this.originalPriceTextBox = new System.Windows.Forms.TextBox();
+            this.discountPercentageTextBox = new System.Windows.Forms.TextBox();
+            this.originalPricePromptLabel = new System.Windows.Forms.Label();
+            this.discPercentagePromptLabel = new System.Windows.Forms.Label();
+            this.outputDescriptionLabel = new System.Windows.Forms.Label();
+            this.salePriceLabel = new System.Windows.Forms.Label();
+            this.calculateButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // originalPriceTextBox
+            // 原價輸入欄位：讓使用者輸入商品原價
+            this.originalPriceTextBox.Location = new System.Drawing.Point(172, 16);
+            this.originalPriceTextBox.Name = "originalPriceTextBox";
+            this.originalPriceTextBox.Size = new System.Drawing.Size(100, 20);
+            this.originalPriceTextBox.TabIndex = 0;
+            // 
+            // discountPercentageTextBox
+            // 折扣百分比輸入欄位：讓使用者輸入折扣（例如 20 表示 20%）
+            this.discountPercentageTextBox.Location = new System.Drawing.Point(172, 42);
+            this.discountPercentageTextBox.Name = "discountPercentageTextBox";
+            this.discountPercentageTextBox.Size = new System.Drawing.Size(100, 20);
+            this.discountPercentageTextBox.TabIndex = 1;
+            // 
+            // originalPricePromptLabel
+            // 提示使用者在上方輸入原價的標籤
+            this.originalPricePromptLabel.AutoSize = true;
+            this.originalPricePromptLabel.Location = new System.Drawing.Point(22, 19);
+            this.originalPricePromptLabel.Name = "originalPricePromptLabel";
+            this.originalPricePromptLabel.Size = new System.Drawing.Size(144, 13);
+            this.originalPricePromptLabel.TabIndex = 2;
+            this.originalPricePromptLabel.Text = "請輸入商品原價：";
+            // 
+            // discPercentagePromptLabel
+            // 提示使用者在上方輸入折扣百分比的標籤
+            this.discPercentagePromptLabel.AutoSize = true;
+            this.discPercentagePromptLabel.Location = new System.Drawing.Point(13, 42);
+            this.discPercentagePromptLabel.Name = "discPercentagePromptLabel";
+            this.discPercentagePromptLabel.Size = new System.Drawing.Size(153, 13);
+            this.discPercentagePromptLabel.TabIndex = 3;
+            this.discPercentagePromptLabel.Text = "請輸入折扣百分比：";
+            // 
+            // outputDescriptionLabel
+            // 顯示輸出欄位說明，例如 "特價價格："
+            this.outputDescriptionLabel.AutoSize = true;
+            this.outputDescriptionLabel.Location = new System.Drawing.Point(109, 83);
+            this.outputDescriptionLabel.Name = "outputDescriptionLabel";
+            this.outputDescriptionLabel.Size = new System.Drawing.Size(57, 13);
+            this.outputDescriptionLabel.TabIndex = 4;
+            this.outputDescriptionLabel.Text = "特價價格：";
+            // 
+            // salePriceLabel
+            // 顯示計算後的特價結果，使用固定單一邊框以便於觀察
+            this.salePriceLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.salePriceLabel.Location = new System.Drawing.Point(172, 78);
+            this.salePriceLabel.Name = "salePriceLabel";
+            this.salePriceLabel.Size = new System.Drawing.Size(100, 23);
+            this.salePriceLabel.TabIndex = 5;
+            this.salePriceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // calculateButton
+            // 按下此按鈕會觸發計算特價的事件
+            this.calculateButton.Location = new System.Drawing.Point(64, 125);
+            this.calculateButton.Name = "calculateButton";
+            this.calculateButton.Size = new System.Drawing.Size(75, 39);
+            this.calculateButton.TabIndex = 6;
+            this.calculateButton.Text = "計算特價";
+            this.calculateButton.UseVisualStyleBackColor = true;
+            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
+            // 
+            // exitButton
+            // 按下此按鈕會關閉表單
+            this.exitButton.Location = new System.Drawing.Point(145, 125);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(75, 39);
+            this.exitButton.TabIndex = 7;
+            this.exitButton.Text = "離開";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // Form1
+            // 設定表單的屬性（縮放模式、大小、包含的控制項，以及視窗標題）
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 180);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.calculateButton);
+            this.Controls.Add(this.salePriceLabel);
+            this.Controls.Add(this.outputDescriptionLabel);
+            this.Controls.Add(this.discPercentagePromptLabel);
+            this.Controls.Add(this.originalPricePromptLabel);
+            this.Controls.Add(this.discountPercentageTextBox);
+            this.Controls.Add(this.originalPriceTextBox);
+            this.Name = "Form1";
+            this.Text = "特價計算機"; // 視窗標題
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TextBox originalPriceTextBox;
+        private System.Windows.Forms.TextBox discountPercentageTextBox;
+        private System.Windows.Forms.Label originalPricePromptLabel;
+        private System.Windows.Forms.Label discPercentagePromptLabel;
+        private System.Windows.Forms.Label outputDescriptionLabel;
+        private System.Windows.Forms.Label salePriceLabel;
+        private System.Windows.Forms.Button calculateButton;
+        private System.Windows.Forms.Button exitButton;
+    }
+}
+
