@@ -1,0 +1,104 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Loan_Qualifier
+{
+    // 主表單類別：處理使用者介面事件並呼叫相應的邏輯
+    // 此表單提供一個簡單的「貸款資格檢查」介面，使用者輸入年薪與目前工作年資，
+    // 並可按下按鈕來檢查、清除或離開程式。
+    public partial class Form1 : Form
+    {
+        // 建構子：初始化表單元件
+        // InitializeComponent() 會由設計器所產生的程式碼建立與配置控制項。
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        // 檢查按鈕的 Click 事件處理器
+        // 當使用者按下「檢查貸款資格」按鈕時會觸發此方法。
+        // TODO: 將檢查邏輯加入此處，例如解析 salaryTextBox 與 yearsTextBox 的輸入，
+        // 驗證輸入是否為數字與合理範圍，然後根據條件（例如年薪與年資門檻）決定是否核准貸款，
+        // 最後把結果顯示在 decisionLabel 上。
+        private void checkButton_Click(object sender, EventArgs e)
+        {
+            const decimal minSalary = 1200000m; // 最低年薪門檻
+            const int minYears = 2; // 最低工作年資門檻
+
+            decimal salary; //年薪
+            int years;//年資
+
+            try
+            {
+                salary=decimal.Parse(salaryTextBox.Text);//將年薪字串轉成decimal
+                years=int.Parse(yearsTextBox.Text);//將年資字串轉成int
+                //檢查年薪與年資是否符合門檻
+                if(salary>=minSalary)
+                {
+                    if(years>=minYears)
+                    {
+                        decisionLabel.Text="核准";
+                    }
+                    else
+                    {
+                        decisionLabel.Text="拒絕";
+                    }
+                }
+                else
+                {
+                   decisionLabel.Text="拒絕";
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);//顯示錯誤訊息
+            }
+            // 範例檢查流程（可依需求修改或擴充）：
+            // 1. 讀取使用者輸入（字串）
+            // 2. 嘗試將字串轉成數值型別（int 或 decimal）
+            // 3. 若轉換失敗，顯示錯誤訊息並結束處理
+            // 4. 若轉換成功，比對預設門檻（例如：年薪 >= 50000 且 年資 >= 2）
+            // 5. 根據比對結果更新 decisionLabel 的 Text 屬性告知使用者「核准」或「拒絕」
+
+            // 目前此範例暫時未實作具體邏輯，請依實際需求補上檢查程式碼。
+        }
+
+        // 清除按鈕的 Click 事件處理器
+        // 功能：清空輸入欄位與結果顯示，並將輸入焦點回到年薪的文字方塊。
+        // 此處已經實作基本行為：把 salaryTextBox、yearsTextBox 與 decisionLabel 的文字設為空字串，
+        // 並呼叫 salaryTextBox.Focus() 讓使用者可以直接重新輸入年薪。
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            // 清除兩個輸入欄位
+            salaryTextBox.Text = "";
+            yearsTextBox.Text = "";
+            // 清除結果顯示標籤
+            decisionLabel.Text = "";
+
+            // 將使用者輸入焦點設回年薪欄位，提升使用者體驗
+            salaryTextBox.Focus();
+        }
+
+        // 離開按鈕的 Click 事件處理器
+        // 功能：關閉目前表單，進而結束應用程式（若為主表單）。
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // 關閉表單，會觸發表單的關閉程序（例如 Dispose 等）
+            this.Close();
+        }
+
+        // decisionLabel 的 Click 事件處理器（若不需處理可以刪除或保留空實作）
+        // 此方法目前未對使用者互動進行處理，保留是為了避免設計器中斷開事件綁定造成錯誤。
+        private void decisionLabel_Click(object sender, EventArgs e)
+        {
+            // 空的事件處理器：目前不需要回應 decisionLabel 的點擊。
+        }
+    }
+}
