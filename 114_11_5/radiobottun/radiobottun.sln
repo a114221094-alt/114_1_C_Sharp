@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36401.2 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "radiobottun", "radiobottun\radiobottun.csproj", "{4C9E90AF-D2B9-418E-BFCF-F692F5823422}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C9E90AF-D2B9-418E-BFCF-F692F5823422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C9E90AF-D2B9-418E-BFCF-F692F5823422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C9E90AF-D2B9-418E-BFCF-F692F5823422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C9E90AF-D2B9-418E-BFCF-F692F5823422}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9DF049D7-80E6-4C8D-97C6-E285203A348C}
+	EndGlobalSection
+EndGlobal

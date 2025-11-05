@@ -1,0 +1,17 @@
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\radiobottun.Form1.resources
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\radiobottun.csproj.GenerateResource.cache
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\radiobottun.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\radiobottun.AssemblyInfoInputs.cache
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\radiobottun.AssemblyInfo.cs
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\radiobottun.csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\radiobottun.sourcelink.json
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\bin\Debug\net8.0-windows\radiobottun.exe
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\bin\Debug\net8.0-windows\radiobottun.deps.json
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\bin\Debug\net8.0-windows\radiobottun.runtimeconfig.json
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\bin\Debug\net8.0-windows\radiobottun.dll
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\bin\Debug\net8.0-windows\radiobottun.pdb
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\radiobottun.dll
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\refint\radiobottun.dll
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\radiobottun.pdb
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\radiobottun.genruntimeconfig.cache
+C:\Users\m303\Desktop\114_1_C_Sharp\114_11_5\radiobottun\radiobottun\obj\Debug\net8.0-windows\ref\radiobottun.dll
