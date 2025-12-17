@@ -1,0 +1,39 @@
+﻿using System;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace WinFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnShowHighest_Click(object sender, EventArgs e)
+        {
+            // parse quiz scores
+            double[] scores = new double[3];
+            if (!double.TryParse(txtQuiz1.Text, out scores[0])) scores[0] = double.NaN;
+            if (!double.TryParse(txtQuiz2.Text, out scores[1])) scores[1] = double.NaN;
+            if (!double.TryParse(txtQuiz3.Text, out scores[2])) scores[2] = double.NaN;
+
+            var validScores = scores.Where(s => !double.IsNaN(s)).ToArray();
+            if (validScores.Length == 0)
+            {
+                labelResult.Text = "請輸入至少一個有效的成績";
+                return;
+            }
+
+            double max = validScores.Max();
+            int idx = Array.IndexOf(scores, max) + 1; // 1-based index
+            labelResult.Text = $"最高分: 小考{idx} = {max}";
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

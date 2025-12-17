@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace North_America
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        // 下列說明為繁體中文詳細註解：
+        // GetFileName 方法
+        // 目的：提示使用者選取一個檔案，並將選取到的檔案路徑透過 out 參數回傳。
+        // 備註：此方法通常會使用 OpenFileDialog 來顯示標準的檔案選取對話方塊。
+        // 參數：out string filename - 用以接收使用者選取之完整檔案路徑。
+        // 回傳：無 (void)，但透過 out 參數取得檔名。
+        // 範例行為：若使用者按下 [確定]，則 out 參數會包含選取的檔案；
+        // 若使用者取消，out 參數可設定為空字串或 null（視實作決定）。
+
+        // GetCountries 方法
+        // 目的：接收一個檔案路徑，打開該檔案，並將檔案內容讀入至 countriesListBox 控制項中顯示。
+        // 備註：此方法應處理檔案不存在、無權限存取或格式錯誤等例外狀況。
+        // 參數：string filename - 要開啟並讀取的檔案路徑。
+        // 預期行為：依檔案每一行為一個國家名稱，將每一行加入清單 (ListBox)；
+        // 若發生例外，應以訊息對話方塊提醒使用者（例如 MessageBox.Show）。
+
+        private void getCountriesButton_Click(object sender, EventArgs e)
+        {
+            // 使用者按下「取得國家」按鈕時會執行此事件處理程序。
+            // 程式流程（預期）：
+            // 1. 呼叫 GetFileName(out filename) 以要求使用者選取包含國家名稱的文字檔。
+            // 2. 若使用者有選取檔案（檔名非空），則呼叫 GetCountries(filename) 來讀取並顯示內容。
+            // 3. 在 GetCountries 內部應處理檔案操作可能發生的例外，並在必要時向使用者顯示錯誤訊息。
+            // 注意：此處僅呼叫兩個方法，實際的讀檔與錯誤處理需在 GetFileName 與 GetCountries 的實作中完成。
+
+            string filename; // To hold the filename
+            GetFileName(out filename);
+            GetCountries(filename);
+
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // 使用者按下「結束」按鈕時會執行此事件處理程序。
+            // 此處以 Close() 方法關閉目前的表單，若為應用程式唯一的視窗則應用程式也會終止。
+            this.Close();
+        }
+
+    }
+}

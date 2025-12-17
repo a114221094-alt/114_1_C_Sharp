@@ -1,0 +1,150 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace North_America
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        // 下列說明為繁體中文詳細註解：
+        // GetFileName 方法
+        // 目的：提示使用者選取一個檔案，並將選取到的檔案路徑透過 out 參數回傳。
+        // 備註：此方法通常會使用 OpenFileDialog 來顯示標準的檔案選取對話方塊。
+        // 參數：out string filename - 用以接收使用者選取之完整檔案路徑。
+        // 回傳：無 (void)，但透過 out 參數取得檔名。
+        // 範例行為：若使用者按下 [確定]，則 out 參數會包含選取的檔案；
+        // 若使用者取消，out 參數可設定為空字串或 null（視實作決定）。
+        private void GetFileName(out string filename)
+        {
+            // 使用 Form 上已建立的 OpenFileDialog 控制項 (openFile)。
+            // 若 openFile 未在設計器中設定，可在此動態建立，但本專案設計器已包含 openFile。
+            filename = string.Empty; // 初始為空字串
+
+            try
+            {
+                // 設定檔案篩選（可依需求修改），預設顯示文字檔案
+                openFile.Filter = "文字檔 (*.txt)|*.txt|所有檔案 (*.*)|*.*";
+                openFile.Title = "請選擇包含國家清單的檔案";
+
+                // 顯示對話方塊，若使用者按下確定則回傳檔案路徑
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    filename = openFile.FileName;
+                }
+                else
+                {
+                    // 使用者取消選擇，回傳空字串
+                    filename = string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                // 發生例外時提示使用者，並回傳空字串
+                MessageBox.Show("選取檔案時發生錯誤：" + ex.Message, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                filename = string.Empty;
+            }
+        }
+
+        // GetCountries 方法
+        // 目的：接收一個檔案路徑，打開該檔案，並將檔案內容讀入至 countriesListBox 控制項中顯示。
+        // 預期檔案格式：每一行包含一個國家名稱。
+        private void GetCountries(string filename)
+        {
+            // 若 filename 為空或 null，代表使用者未選取檔案，直接回傳不執行任何動作。
+            if (string.IsNullOrWhiteSpace(filename))
+            {
+                // 可選擇顯示提示，但避免在使用者取消時彈出不必要的訊息。
+                return;
+            }
+
+            try
+            {
+                // 清空現有清單，準備加入新項目
+                countriesListBox.Items.Clear();
+
+                // 逐行讀取檔案內容並加入到 ListBox
+                using (StreamReader reader = new StreamReader(filename))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        // 若該行為空白則忽略
+                        if (!string.IsNullOrWhiteSpace(line))
+                        {
+                            countriesListBox.Items.Add(line.Trim());
+                        }
+                    }
+                }
+
+                // 若檔案讀取後沒有項目，可提醒使用者檔案可能為空
+                if (countriesListBox.Items.Count == 0)
+                {
+                    MessageBox.Show("檔案沒有包含任何國家名稱。", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("找不到指定的檔案。請確認檔案路徑是否正確。", "檔案未找到", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("無權限存取該檔案。請檢查檔案權限。", "存取權限不足", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                // 其他例外情況顯示錯誤訊息
+                MessageBox.Show("讀取檔案時發生錯誤：" + ex.Message, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void getCountriesButton_Click(object sender, EventArgs e)
+        {
+            // 使用者按下「取得國家」按鈕時會執行此事件處理程序。
+            // 程式流程（預期）：
+            // 1. 呼叫 GetFileName(out filename) 以要求使用者選取包含國家名稱的文字檔。
+            // 2. 若使用者有選取檔案（檔名非空），則呼叫 GetCountries(filename) 來讀取並顯示內容。
+            // 3. 在 GetCountries 內部已處理檔案操作可能發生的例外，並在必要時向使用者顯示錯誤訊息。
+
+            string filename; // 用以接收選取的檔案路徑
+            GetFileName(out filename);// 呼叫方法取得檔名
+            GetCountries(filename);// 呼叫方法讀取並顯示國家清單
+
+        }
+
+        private void GetFileName(out string filename)
+        {
+            string country;
+            countriesListBox.Items.Clear();
+            if (filename != string.Empty)
+            {
+                StreamReader inputFile = File.OpenText(filename);
+                while (!inputFile.EndOfStream)
+                {
+                    country = inputFile.ReadLine();
+                    countriesListBox.Items.Add(country);
+                }
+                inputFile.Close();
+            }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // 使用者按下「結束」按鈕時會執行此事件處理程序。
+            // 此處以 Close() 方法關閉目前的表單，若為應用程式唯一的視窗則應用程式也會終止。
+            this.Close();
+        }
+
+    }
+}
