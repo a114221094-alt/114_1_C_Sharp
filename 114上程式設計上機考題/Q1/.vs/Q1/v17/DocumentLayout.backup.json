@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114\u4E0A\u7A0B\u5F0F\u8A2D\u8A08\u4E0A\u6A5F\u8003\u984C\\Q1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FCB2B912-BC4F-4FB6-8499-E41CFBB4C0E7}|Q1\\Q1.csproj|C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114\u4E0A\u7A0B\u5F0F\u8A2D\u8A08\u4E0A\u6A5F\u8003\u984C\\Q1\\q1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{FCB2B912-BC4F-4FB6-8499-E41CFBB4C0E7}|Q1\\Q1.csproj|c:\\users\\m303\\desktop\\114_1_c_sharp\\114\u4E0A\u7A0B\u5F0F\u8A2D\u8A08\u4E0A\u6A5F\u8003\u984C\\q1\\q1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FCB2B912-BC4F-4FB6-8499-E41CFBB4C0E7}|Q1\\Q1.csproj|solutionrelative:q1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -30,8 +30,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 117,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -42,8 +46,7 @@
               "RelativeToolTip": "Q1\\Properties\\Resources.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-24T04:23:51.834Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-24T04:23:51.834Z"
             },
             {
               "$type": "Document",
@@ -55,8 +58,7 @@
               "RelativeToolTip": "Q1\\Properties\\Resources.resx",
               "ViewState": "AgIAAGsAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-12-24T03:12:04.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-24T03:12:04.035Z"
             },
             {
               "$type": "Document",

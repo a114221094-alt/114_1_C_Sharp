@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -22,17 +22,19 @@ namespace Q2
 
         private void InitControls()
         {
-            // Initialize state for new layout
+            // nothing to populate for checkboxes here
+
+            numericUpDownParts = null; // ensure old controls are not used
+
             buttonCalculate.Click += CalculateButton_Click;
             buttonClearShort.Click += ClearButton_Click;
             buttonExit.Click += ExitButton_Click;
 
+            // initialize textboxes
             textBoxServiceLabor.Text = string.Empty;
             textBoxParts.Text = string.Empty;
             textBoxTax.Text = string.Empty;
             textBoxTotal.Text = string.Empty;
-            textBoxPartsInput.Text = string.Empty;
-            textBoxHoursInput.Text = string.Empty;
         }
 
         private IEnumerable<ServiceItem> GetSelectedServiceItems()
@@ -50,7 +52,7 @@ namespace Q2
 
         private void CalculateButton_Click(object? sender, EventArgs e)
         {
-            // safe parse parts and hours from textboxes
+            // safe parse parts and hours
             if (!decimal.TryParse(textBoxPartsInput.Text.Trim(), out var parts))
                 parts = 0m;
             if (parts < 0) parts = 0m;
@@ -95,34 +97,7 @@ namespace Q2
             this.Close();
         }
 
-        private ServiceRecord CreateRecordFromInputs()
-        {
-            var selected = GetSelectedServiceItems().ToList();
-            decimal serviceFee = selected.Sum(s => s.Price);
-            var displayNames = selected.Select(s => s.DisplayName).ToList();
-
-            if (!decimal.TryParse(textBoxPartsInput.Text.Trim(), out var parts)) parts = 0m;
-            if (!decimal.TryParse(textBoxHoursInput.Text.Trim(), out var hours)) hours = 0m;
-
-            decimal partsTax = ServiceCalculator.CalculatePartsTax(parts);
-            decimal laborFee = ServiceCalculator.CalculateLabor(hours);
-            decimal total = (serviceFee + laborFee) + parts + partsTax;
-
-            return new ServiceRecord
-            {
-                Date = DateTime.Now,
-                ServicesDescription = string.Join(", ", displayNames),
-                ServiceFee = serviceFee,
-                PartsCost = parts,
-                PartsTax = partsTax,
-                LaborHours = hours,
-                LaborRate = ServiceCalculator.LaborRatePerHour,
-                LaborFee = laborFee,
-                TotalCost = total
-            };
-        }
-
-        // Keep export/report/save methods intact (they use records list)
+        // The rest of methods (reporting, saving) are unchanged but made internal no-ops for this layout
 
         private string EscapeCsv(string s)
         {
@@ -136,10 +111,10 @@ namespace Q2
         private string BuildDetailedReport(ServiceRecord rec)
         {
             var sb = new StringBuilder();
-            sb.AppendLine("¨®½øºû­×¸Ô²Ó³øªí");
-            sb.AppendLine($"¤é´Á: {rec.Date:yyyy-MM-dd HH:mm}");
+            sb.AppendLine("è»Šè¼›ç¶­ä¿®è©³ç´°å ±è¡¨");
+            sb.AppendLine($"æ—¥æœŸ: {rec.Date:yyyy-MM-dd HH:mm}");
             sb.AppendLine();
-            sb.AppendLine("ªA°È¶µ¥Ø:");
+            sb.AppendLine("æœå‹™é …ç›®:");
             foreach (var s in rec.ServicesDescription.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries))
             {
                 var name = s.Trim();
@@ -153,24 +128,25 @@ namespace Q2
                 }
             }
             sb.AppendLine();
-            sb.AppendLine($"ªA°È¶O¤p­p: {rec.ServiceFee:C}");
-            sb.AppendLine($"¤u¸ê: {rec.LaborHours} ¤p®É @ {rec.LaborRate:C}/¤p®É = {rec.LaborFee:C}");
-            sb.AppendLine($"¹s¥ó¶O: {rec.PartsCost:C}");
-            sb.AppendLine($"¹s¥óµ| (6%): {rec.PartsTax:C}");
+            sb.AppendLine($"æœå‹™è²»å°è¨ˆ: {rec.ServiceFee:C}");
+            sb.AppendLine($"å·¥è³‡: {rec.LaborHours} å°æ™‚ @ {rec.LaborRate:C}/å°æ™‚ = {rec.LaborFee:C}");
+            sb.AppendLine($"é›¶ä»¶è²»: {rec.PartsCost:C}");
+            sb.AppendLine($"é›¶ä»¶ç¨… (6%): {rec.PartsTax:C}");
             sb.AppendLine();
-            sb.AppendLine($"­pºâ¹Lµ{:");
-            sb.AppendLine($"ªA°È»P¤u¸êÁ`ÃB = ªA°È¶O + ¤u¸ê = {rec.ServiceFee:C} + {rec.LaborFee:C} = {(rec.ServiceFee + rec.LaborFee):C}");
-            sb.AppendLine($"Á`¶O¥Î = ªA°È»P¤u¸êÁ`ÃB + ¹s¥ó¶O + ¹s¥óµ| = {(rec.ServiceFee + rec.LaborFee):C} + {rec.PartsCost:C} + {rec.PartsTax:C} = {rec.TotalCost:C}");
+            sb.AppendLine($"è¨ˆç®—éç¨‹:");
+            sb.AppendLine($"æœå‹™èˆ‡å·¥è³‡ç¸½é¡ = æœå‹™è²» + å·¥è³‡ = {rec.ServiceFee:C} + {rec.LaborFee:C} = {(rec.ServiceFee + rec.LaborFee):C}");
+            sb.AppendLine($"ç¸½è²»ç”¨ = æœå‹™èˆ‡å·¥è³‡ç¸½é¡ + é›¶ä»¶è²» + é›¶ä»¶ç¨… = {(rec.ServiceFee + rec.LaborFee):C} + {rec.PartsCost:C} + {rec.PartsTax:C} = {rec.TotalCost:C}");
             sb.AppendLine();
-            sb.AppendLine("--- ³øªíµ²§ô ---");
+            sb.AppendLine("--- å ±è¡¨çµæŸ ---");
             return sb.ToString();
         }
 
         private void Form1_FormClosing(object? sender, FormClosingEventArgs e)
         {
+            // keep existing save prompt behavior
             if (records.Count == 0) return;
 
-            var result = MessageBox.Show("¦³Àx¦sªº¬ö¿ı¡A¬O§_¦bÂ÷¶}«eÀx¦s§¹¾ã³øªí¡H\n(¬O = Àx¦s, §_ = ª½±µÂ÷¶}, ¨ú®ø = ªğ¦^µ{¦¡)", "Ãö³¬«eÀx¦s", MessageBoxButtons.YesNoCancel);
+            var result = MessageBox.Show("æœ‰å„²å­˜çš„ç´€éŒ„ï¼Œæ˜¯å¦åœ¨é›¢é–‹å‰å„²å­˜å®Œæ•´å ±è¡¨ï¼Ÿ\n(æ˜¯ = å„²å­˜, å¦ = ç›´æ¥é›¢é–‹, å–æ¶ˆ = è¿”å›ç¨‹å¼)", "é—œé–‰å‰å„²å­˜", MessageBoxButtons.YesNoCancel);
             if (result == DialogResult.Cancel)
             {
                 e.Cancel = true;
@@ -179,13 +155,13 @@ namespace Q2
             if (result == DialogResult.Yes)
             {
                 using var sfd = new SaveFileDialog();
-                sfd.Filter = "¤å¦rÀÉ|*.txt|©Ò¦³ÀÉ®×|*.*";
+                sfd.Filter = "æ–‡å­—æª”|*.txt|æ‰€æœ‰æª”æ¡ˆ|*.*";
                 sfd.FileName = "ServiceRecords_Summary.txt";
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     var sb = new StringBuilder();
-                    sb.AppendLine("¨®½øºû­×¬ö¿ı¶×Á`");
-                    sb.AppendLine($"¶×¥X®É¶¡: {DateTime.Now:yyyy-MM-dd HH:mm}");
+                    sb.AppendLine("è»Šè¼›ç¶­ä¿®ç´€éŒ„åŒ¯ç¸½");
+                    sb.AppendLine($"åŒ¯å‡ºæ™‚é–“: {DateTime.Now:yyyy-MM-dd HH:mm}");
                     sb.AppendLine();
                     foreach (var r in records)
                     {

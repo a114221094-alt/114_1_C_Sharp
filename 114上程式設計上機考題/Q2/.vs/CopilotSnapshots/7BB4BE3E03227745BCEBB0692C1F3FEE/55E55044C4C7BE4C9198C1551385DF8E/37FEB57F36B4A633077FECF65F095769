@@ -39,8 +39,6 @@
         private System.Windows.Forms.Button buttonClearShort;
         private System.Windows.Forms.Button buttonExit;
 
-        private System.Windows.Forms.DataGridView dataGridViewRecords;
-
         /// <summary>
         ///  Clean up any resources being used.
         /// </summary>
@@ -93,9 +91,6 @@
             this.buttonCalculate = new System.Windows.Forms.Button();
             this.buttonClearShort = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
-
-            // instantiate dataGridViewRecords so BeginInit/EndInit are valid
-            this.dataGridViewRecords = new System.Windows.Forms.DataGridView();
 
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecords)).BeginInit();
             this.SuspendLayout();
