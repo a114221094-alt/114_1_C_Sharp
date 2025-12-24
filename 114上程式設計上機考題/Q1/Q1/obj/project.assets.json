@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_12_24\\Q1\\Q1\\Q1.csproj",
+      "projectUniqueName": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114上程式設計上機考題\\Q1\\Q1\\Q1.csproj",
       "projectName": "Q1",
-      "projectPath": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_12_24\\Q1\\Q1\\Q1.csproj",
+      "projectPath": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114上程式設計上機考題\\Q1\\Q1\\Q1.csproj",
       "packagesPath": "C:\\Users\\m303\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_12_24\\Q1\\Q1\\obj\\",
+      "outputPath": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114上程式設計上機考題\\Q1\\Q1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

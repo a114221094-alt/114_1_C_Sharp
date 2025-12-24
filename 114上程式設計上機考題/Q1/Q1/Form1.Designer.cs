@@ -91,7 +91,7 @@
             this.playerPictureBox.Location = new System.Drawing.Point(30, 20);
             this.playerPictureBox.Name = "playerPictureBox";
             this.playerPictureBox.Size = new System.Drawing.Size(170, 170);
-            this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.playerPictureBox.TabIndex = 3;
             this.playerPictureBox.TabStop = false;
             // 
@@ -101,7 +101,7 @@
             this.computerPictureBox.Location = new System.Drawing.Point(240, 20);
             this.computerPictureBox.Name = "computerPictureBox";
             this.computerPictureBox.Size = new System.Drawing.Size(170, 170);
-            this.computerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.computerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.computerPictureBox.TabIndex = 4;
             this.computerPictureBox.TabStop = false;
             // 

@@ -10,6 +10,7 @@
 
 namespace Q1.Properties {
     using System;
+    using System.Drawing;
     
     
     /// <summary>
@@ -57,6 +58,49 @@ namespace Q1.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+
+        // Manually added strongly-typed properties for image resources
+        internal static Bitmap player_rock {
+            get {
+                object obj = ResourceManager.GetObject("player_rock", resourceCulture);
+                return (Bitmap)obj;
+            }
+        }
+
+        internal static Bitmap comp_rock {
+            get {
+                object obj = ResourceManager.GetObject("comp_rock", resourceCulture);
+                return (Bitmap)obj;
+            }
+        }
+
+        internal static Bitmap player_paper {
+            get {
+                object obj = ResourceManager.GetObject("player_paper", resourceCulture);
+                return (Bitmap)obj;
+            }
+        }
+
+        internal static Bitmap comp_paper {
+            get {
+                object obj = ResourceManager.GetObject("comp_paper", resourceCulture);
+                return (Bitmap)obj;
+            }
+        }
+
+        internal static Bitmap player_scissors {
+            get {
+                object obj = ResourceManager.GetObject("player_scissors", resourceCulture);
+                return (Bitmap)obj;
+            }
+        }
+
+        internal static Bitmap comp_scissors {
+            get {
+                object obj = ResourceManager.GetObject("comp_scissors", resourceCulture);
+                return (Bitmap)obj;
             }
         }
     }

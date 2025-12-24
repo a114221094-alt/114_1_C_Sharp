@@ -117,4 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <!-- Resource entries mapping code-friendly names to image files in Images folder -->
+  <data name="player_rock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\stone_player.png;System.Drawing.Bitmap, System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51</value>
+  </data>
+  <data name="comp_rock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\stone_computer.png;System.Drawing.Bitmap, System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51</value>
+  </data>
+  <data name="player_paper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\paper_player.png;System.Drawing.Bitmap, System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51</value>
+  </data>
+  <data name="comp_paper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\paper_computer.png;System.Drawing.Bitmap, System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51</value>
+  </data>
+  <data name="player_scissors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\scissor_player.png;System.Drawing.Bitmap, System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51</value>
+  </data>
+  <data name="comp_scissors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\scissor_computer.png;System.Drawing.Bitmap, System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51</value>
+  </data>
 </root>
