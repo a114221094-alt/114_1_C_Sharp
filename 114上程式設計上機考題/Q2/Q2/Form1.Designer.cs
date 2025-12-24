@@ -236,7 +236,7 @@
             groupBoxDetails.Controls.Add(labelTotal);
             groupBoxDetails.Location = new Point(590, 12);
             groupBoxDetails.Name = "groupBoxDetails";
-            groupBoxDetails.Size = new Size(300, 120);
+            groupBoxDetails.Size = new Size(482, 120);
             groupBoxDetails.TabIndex = 3;
             groupBoxDetails.TabStop = false;
             groupBoxDetails.Text = "費用明細";
@@ -281,7 +281,7 @@
             // 
             labelTotal.AutoSize = true;
             labelTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            labelTotal.Location = new Point(150, 80);
+            labelTotal.Location = new Point(237, 14);
             labelTotal.Name = "labelTotal";
             labelTotal.Size = new Size(90, 32);
             labelTotal.TabIndex = 4;
@@ -296,14 +296,14 @@
             dataGridViewRecords.Name = "dataGridViewRecords";
             dataGridViewRecords.RowHeadersWidth = 62;
             dataGridViewRecords.RowTemplate.Height = 25;
-            dataGridViewRecords.Size = new Size(878, 234);
+            dataGridViewRecords.Size = new Size(1060, 234);
             dataGridViewRecords.TabIndex = 4;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(902, 450);
+            ClientSize = new Size(1109, 450);
             Controls.Add(dataGridViewRecords);
             Controls.Add(groupBoxDetails);
             Controls.Add(flowLayoutPanelButtons);

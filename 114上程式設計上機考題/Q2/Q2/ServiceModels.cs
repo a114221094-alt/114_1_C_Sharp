@@ -131,12 +131,20 @@ namespace Q2
         public ServiceType Type { get; }
         /// <summary>繁體中文顯示名稱</summary>
         public string DisplayName { get; }
+        /// <summary>項目價格（從 ServiceCalculator 取得）</summary>
+        public decimal Price { get; }
         public ServiceItem(ServiceType type)
         {
             Type = type;
             DisplayName = ServiceCalculator.GetDisplayName(type);
+            Price = ServiceCalculator.GetBasePrice(type);
         }
-        public override string ToString() => DisplayName;
+        /// <summary>
+        /// 顯示於 CheckedListBox 的文字，包含中文名稱與價格，例如："機油更換 - NT$780"
+        /// 注意：內部邏輯仍使用 DisplayName（中文名稱）來處理，ToString 只影響 UI 顯示。
+        /// </summary>
+        /// <returns>顯示字串</returns>
+        public override string ToString() => $"{DisplayName} - NT${Price:0}";
     }
 
     /// <summary>
